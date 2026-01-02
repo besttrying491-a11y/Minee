@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For My Cutie 💖</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body{
+    background: linear-gradient(135deg,#ffd6e8,#ffeaf3);
+    overflow:hidden;
+}
+
+.page{
+    width:100vw;
+    height:100vh;
+    display:none;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+    animation: fade 1s ease;
+}
+
+.page.active{
+    display:flex;
+}
+
+.box{
+    background:white;
+    padding:40px;
+    border-radius:30px;
+    box-shadow:0 20px 40px rgba(255,105,180,0.4);
+    max-width:420px;
+    width:100%;
+}
+
+h1,h2{
+    color:#e91e63;
+}
+
+p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+button{
+    margin-top:25px;
+    padding:14px 30px;
+    border:none;
+    border-radius:40px;
+    background:#ff4f87;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#ff2f70;
+    transform:scale(1.05);
+}
+
+@keyframes fade{
+    from{opacity:0; transform:scale(0.9);}
+    to{opacity:1; transform:scale(1);}
+}
+
+/* Floating hearts */
+.heart{
+    position:fixed;
+    bottom:-20px;
+    font-size:24px;
+    animation: float 6s linear infinite;
+}
+@keyframes float{
+    to{
+        transform:translateY(-110vh);
+        opacity:0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Page 1 -->
+<div class="page active" id="p1">
+    <div class="box">
+        <h1>Hey Cutie 🧸</h1>
+        <p>तुम्हारे लिए कुछ बहुत खास है 💖</p>
+        <button onclick="nextPage()">Start 💕</button>
+    </div>
+</div>
+
+<!-- Page 2 -->
+<div class="page" id="p2">
+    <div class="box">
+        <h2>Question 💭</h2>
+        <p>दुनिया की सबसे प्यारी smile किसकी है?</p>
+        <button onclick="nextPage()">तुम्हारी 😍</button>
+    </div>
+</div>
+
+<!-- Page 3 -->
+<div class="page" id="p3">
+    <div class="box">
+        <h2>One More 🥰</h2>
+        <p>जब मैं उदास होता हूँ, मुझे कौन हँसाता है?</p>
+        <button onclick="nextPage()">मैं हूँ ना 🧸</button>
+    </div>
+</div>
+
+<!-- Page 4 -->
+<div class="page" id="p4">
+    <div class="box">
+        <h1>You're Special 💖</h1>
+        <p>तुम मेरी दुनिया की सबसे प्यारी इंसान हो ✨</p>
+        <p>हमेशा ऐसे ही मुस्कुराती रहना 🧸💕</p>
+    </div>
+</div>
+
+<script>
+let current = 0;
+const pages = document.querySelectorAll('.page');
+
+function nextPage(){
+    if(current < pages.length - 1){
+        pages[current].classList.remove('active');
+        current++;
+        pages[current].classList.add('active');
+    }
+}
+
+// floating hearts
+setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    document.body.appendChild(heart);
+    setTimeout(()=>heart.remove(),6000);
+},700);
+</script>
+
+</body>
+</html>
+  
